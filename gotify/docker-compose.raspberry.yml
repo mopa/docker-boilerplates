@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  gotify:
+    image: gotify/server-arm7
+    container_name: gotify
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    environment:
+      - GOTIFY_DEFAULTUSER_PASS=custom
+      - TZ="Europe/Madrid"
+    volumes:
+      - ./data:/app/data
